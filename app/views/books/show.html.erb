@@ -3,8 +3,8 @@
 <%= render @book %>
 
 <div>
-  <%= link_to t('.to_edit_book'), edit_book_path(@book) %> |
-  <%= link_to t('.back_to_books'), books_path %>
+  <%= link_to (t '.to_edit_book'), edit_book_path(@book) %> |
+  <%= link_to (t '.back_to_books'), books_path %>
 
-  <%= button_to t('.delete_this_book'), @book, method: :delete %>
+  <%= button_to (t '.delete_this_book'), @book, method: :delete %>
 </div>
