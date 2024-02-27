@@ -7,3 +7,7 @@ ja:
     new:
       title: '新規登録'
       to_books: '本一覧へ'
+    show:
+      to_edit_book: '本を編集'
+      back_to_books: '本一覧へ戻る'
+      delete_this_book: '本を削除'

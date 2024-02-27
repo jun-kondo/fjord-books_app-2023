@@ -7,3 +7,7 @@ en:
     new:
       title: 'New book'
       to_books: 'Back to books'
+    show:
+      to_edit_book: 'Edit this book'
+      back_to_books: 'Back to books'
+      delete_this_book: 'Destroy this book'
