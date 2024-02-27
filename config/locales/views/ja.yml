@@ -6,7 +6,7 @@ ja:
       to_register_book: '新しい本を追加'
     new:
       title: '新規登録'
-      to_books: '本一覧へ'
+      back_to_books: '本一覧へ戻る'
     show:
       to_edit_book: '本を編集'
       back_to_books: '本一覧へ戻る'
