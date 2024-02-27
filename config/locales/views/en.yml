@@ -1,0 +1,6 @@
+en:
+  books:
+    index:
+      title: 'Books'
+      to_book_detail: 'Show this book'
+      to_register_book: 'new book'

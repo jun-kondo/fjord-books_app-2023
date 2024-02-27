@@ -1,0 +1,6 @@
+ja:
+  books:
+    index:
+      title: '本の一覧'
+      to_book_detail: 'この本を表示'
+      to_register_book: '新しい本を追加'
