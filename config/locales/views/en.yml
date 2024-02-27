@@ -15,3 +15,9 @@ en:
       title: 'Editing book'
       to_book_detail: 'Show this book'
       back_to_books: 'Back to books'
+    create:
+      success: 'Book was successfully created.'
+    update:
+      success: 'Book was successfully updated.'
+    destroy:
+      success: 'Book was successfully destroyed.'
