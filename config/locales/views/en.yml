@@ -11,3 +11,7 @@ en:
       to_edit_book: 'Edit this book'
       back_to_books: 'Back to books'
       delete_this_book: 'Destroy this book'
+    edit:
+      title: 'Editing book'
+      to_book_detail: 'Show this book'
+      back_to_books: 'Back to books'
