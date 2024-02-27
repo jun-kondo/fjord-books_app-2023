@@ -4,3 +4,6 @@ en:
       title: 'Books'
       to_book_detail: 'Show this book'
       to_register_book: 'new book'
+    new:
+      title: 'New book'
+      to_books: 'Back to books'

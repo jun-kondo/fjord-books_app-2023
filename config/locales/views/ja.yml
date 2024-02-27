@@ -4,3 +4,6 @@ ja:
       title: '本の一覧'
       to_book_detail: 'この本を表示'
       to_register_book: '新しい本を追加'
+    new:
+      title: '新規登録'
+      to_books: '本一覧へ'
