@@ -9,3 +9,8 @@ ja:
         memo: メモ
         picture: 画像
         title: タイトル
+
+  defaults:
+    login: 'ログイン'
+    logout: 'ログアウト'
+    profile: 'プロフィール'
