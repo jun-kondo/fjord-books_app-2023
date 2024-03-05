@@ -16,8 +16,8 @@ ja:
         self_introduction: 自己紹介
 
   defaults:
-    login: 'ログイン'
-    logout: 'ログアウト'
+    login: ログイン
+    logout: ログアウト
     my_page: マイページ
   users:
     show:
