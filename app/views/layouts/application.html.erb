@@ -12,6 +12,7 @@
 
   <body class="<%= params[:action] %>">
     <% if user_signed_in? %>
+      <%= link_to (t 'defaults.users'), users_path %>
       <%= link_to (t 'defaults.my_page'), current_user %>
       <%= link_to (t 'defaults.logout'), destroy_user_session_path,
                   data: { "turbo-method": :delete } %>

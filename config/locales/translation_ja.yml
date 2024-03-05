@@ -19,6 +19,7 @@ ja:
     login: ログイン
     logout: ログアウト
     my_page: マイページ
+    users: ユーザー一覧
   users:
     show:
       profile: プロフィール
