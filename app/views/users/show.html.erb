@@ -10,3 +10,9 @@
 <%= @user.address %>
 <h3><%= t '.self_introduction' %></h3>
 <%= @user.self_introduction%>
+
+<% if @user == current_user %>
+  <nav class="page-nav">
+    <%= link_to t('views.common.edit', name: User.model_name.human.downcase), edit_user_registration_path %>
+  </nav>
+<% end %>
