@@ -3,10 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'UserSessions', type: :system do
-  before do
-    driven_by(:rack_test)
-  end
-
   let(:user) { create(:user) }
 
   describe 'ログイン前' do
@@ -33,12 +29,7 @@ RSpec.describe 'UserSessions', type: :system do
   end
 
   describe 'ログイン後' do
-    before do
-      visit new_user_session_path
-      fill_in 'user_email', with: user.email
-      fill_in 'user_password', with: 'password'
-      click_button 'ログイン'
-    end
+    before { sign_in(user) }
 
     context 'ログアウトボタンをクリック' do
       it 'ログアウト処理が成功する' do
