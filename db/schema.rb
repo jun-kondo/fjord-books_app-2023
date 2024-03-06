@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_05_093038) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "zip_code"
+    t.string "zip_code"
     t.string "address"
     t.text "self_introduction"
     t.index ["email"], name: "index_users_on_email", unique: true

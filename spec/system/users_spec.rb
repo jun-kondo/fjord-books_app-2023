@@ -46,21 +46,21 @@ RSpec.describe 'Users', type: :system do
   end
 
   describe 'ログイン後' do
-    before do
-      visit new_user_session_path
-      fill_in 'user_email', with: user.email
-      fill_in 'user_password', with: 'password'
-      click_button 'ログイン'
-    end
-
     describe 'ユーザー編集' do
+      before do
+        visit new_user_session_path
+        fill_in 'user_email', with: user.email
+        fill_in 'user_password', with: 'password'
+        click_button 'ログイン'
+      end
+
       context 'フォームの入力値が正常' do
         it 'ユーザーの編集が成功する' do
           visit edit_user_registration_path(user)
           fill_in 'user_email', with: 'update@example.com'
           fill_in 'user_password', with: 'updatepassword'
           fill_in 'user_password_confirmation', with: 'updatepassword'
-          fill_in 'user_zip_code', with: 1234567
+          fill_in 'user_zip_code', with: '1234567'
           fill_in 'user_address', with: '東京都千代田区1-1'
           fill_in 'user_self_introduction', with: 'よろしくお願いします。'
           click_button '更新'
