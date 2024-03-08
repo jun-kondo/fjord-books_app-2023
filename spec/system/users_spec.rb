@@ -73,6 +73,33 @@ RSpec.describe 'Users', type: :system do
   end
 
   describe 'ログイン後' do
+    before { sign_in(user) }
+
+    describe 'ユーザー一覧ページ' do
+      context 'ユーザーが一人の場合' do
+        it 'ページネーションリンクが存在しない' do
+          visit users_path
+          expect(page).not_to have_css '.pagination'
+        end
+      end
+
+      context 'ユーザーが26人以上の場合' do
+        before do
+          create_list(:user, 25)
+          visit users_path
+        end
+
+        it 'ページネーションリンクが存在する' do
+          expect(page).to have_css '.pagination'
+        end
+
+        it 'ユーザー一覧の2ページ目に移動できる' do
+          click_link '次'
+          expect(page).to have_selector '.page.current', text: '2'
+        end
+      end
+    end
+
     describe 'ユーザー編集' do
       before { sign_in(user) }
 
