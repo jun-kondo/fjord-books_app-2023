@@ -42,4 +42,20 @@ Book.create!(
   )
 end
 
+User.create!(email: 'example@example.com',
+             password: 'foobar',
+             password_confirmation: 'foobar',
+             zip_code: '1000001',
+             address: '東京都千代田区千代田1-1',
+             self_introduction: 'Nice to meet you')
+
+# 追加のユーザーをまとめて生成する
+99.times do |n|
+  email = "example-#{n + 1}@example.com"
+  password = 'password'
+  User.create!(email:,
+               password:,
+               password_confirmation: password)
+end
+
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output
