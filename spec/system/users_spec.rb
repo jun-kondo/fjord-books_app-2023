@@ -47,7 +47,7 @@ RSpec.describe 'Users', type: :system do
 
   describe 'マイページ' do
     context 'ログインしていない状態' do
-      it 'マイページへのアクセスが失敗する' do
+      it 'マイページへのアクセスが失敗し、ログイン画面にリダイレクトする' do
         visit user_path(user)
         expect(current_path).to eq new_user_session_path
       end
@@ -56,7 +56,7 @@ RSpec.describe 'Users', type: :system do
 
   describe 'ユーザー一覧ページ' do
     context 'ログインしていない状態' do
-      it 'ユーザー一覧へのアクセスが失敗する' do
+      it 'ユーザー一覧へのアクセスが失敗し、ログイン画面にリダイレクトする' do
         visit user_path(user)
         expect(current_path).to eq new_user_session_path
       end
@@ -65,7 +65,7 @@ RSpec.describe 'Users', type: :system do
 
   describe 'ユーザー編集ページ' do
     context 'ログインしていない状態' do
-      it 'ユーザー編集へのアクセスが失敗する' do
+      it 'ユーザー編集へのアクセスが失敗し、ログイン画面にリダイレクトする' do
         visit edit_user_registration_path
         expect(current_path).to eq new_user_session_path
       end
