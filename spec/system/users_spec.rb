@@ -101,8 +101,6 @@ RSpec.describe 'Users', type: :system do
     end
 
     describe 'ユーザー編集' do
-      before { sign_in(user) }
-
       context 'フォームの入力値が正常' do
         it 'ユーザーの編集が成功する' do
           visit edit_user_registration_path
