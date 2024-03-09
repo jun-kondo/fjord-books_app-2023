@@ -1,4 +1,11 @@
 ja:
+  messages:
+    create:
+      success: '%{item}を登録しました。'
+    update:
+      success: '%{item}を更新しました。'
+    destroy:
+      success: '%{item}を削除しました。'
   books:
     index:
       title: '本の一覧'
@@ -15,9 +22,3 @@ ja:
       title: '本を編集'
       to_book_detail: '本の詳細'
       back_to_books: '本一覧へ戻る'
-    create:
-      success: '登録しました。'
-    update:
-      success: '更新しました。'
-    destroy:
-      success: '削除しました。'
