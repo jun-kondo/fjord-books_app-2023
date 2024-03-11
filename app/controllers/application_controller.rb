@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def after_sign_in_path_for(_resource)
-    books_url
+  def after_sign_in_path_for(resource_or_scope)
+    stored_location_for(resource_or_scope) || books_url
   end
 
   def after_sign_out_path_for(_resource)

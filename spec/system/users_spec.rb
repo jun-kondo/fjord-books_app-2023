@@ -52,13 +52,40 @@ RSpec.describe 'Users', type: :system do
         expect(current_path).to eq new_user_session_path
       end
     end
+
+    context 'フレンドリーフォワーディング' do
+      it 'ログイン画面にリダイレクト後、認証するとマイページへリダイレクトされる' do
+        visit user_path(user)
+        expect(current_path).to eq new_user_session_path
+        fill_in 'user[email]', with: user.email
+        fill_in 'user[password]', with: user.password
+        click_button 'ログイン'
+        expect(page).to have_content 'ログインしました。'
+        expect(page).to have_content user.email
+        expect(current_path).to eq user_path(user)
+      end
+    end
   end
 
   describe 'ユーザー一覧ページ' do
     context 'ログインしていない状態' do
       it 'ユーザー一覧へのアクセスが失敗し、ログイン画面にリダイレクトする' do
-        visit user_path(user)
+        visit users_path
         expect(current_path).to eq new_user_session_path
+      end
+    end
+
+    context 'フレンドリーフォワーディング' do
+      it 'ログイン画面にリダイレクト後、認証するとユーザー一覧へリダイレクトされる' do
+        visit users_path
+        expect(current_path).to eq new_user_session_path
+        fill_in 'user[email]', with: user.email
+        fill_in 'user[password]', with: user.password
+        click_button 'ログイン'
+        expect(page).to have_content 'ログインしました。'
+        expect(page).to have_content 'ユーザーの一覧'
+        expect(page).to have_content user.email
+        expect(current_path).to eq users_path
       end
     end
   end
@@ -68,6 +95,20 @@ RSpec.describe 'Users', type: :system do
       it 'ユーザー編集へのアクセスが失敗し、ログイン画面にリダイレクトする' do
         visit edit_user_registration_path
         expect(current_path).to eq new_user_session_path
+      end
+    end
+
+    context 'フレンドリーフォワーディング' do
+      it 'ログイン画面にリダイレクト後、認証するとユーザー編集へリダイレクトされる' do
+        visit edit_user_registration_path
+        expect(current_path).to eq new_user_session_path
+        fill_in 'user[email]', with: user.email
+        fill_in 'user[password]', with: user.password
+        click_button 'ログイン'
+        expect(page).to have_content 'ログインしました。'
+        expect(page).to have_content 'ユーザー編集'
+        expect(page).to have_field 'Eメール', with: user.email
+        expect(current_path).to eq edit_user_registration_path
       end
     end
   end
