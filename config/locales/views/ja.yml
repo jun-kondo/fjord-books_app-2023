@@ -1,0 +1,24 @@
+ja:
+  messages:
+    create:
+      success: '%{item}を登録しました。'
+    update:
+      success: '%{item}を更新しました。'
+    destroy:
+      success: '%{item}を削除しました。'
+  books:
+    index:
+      title: '本の一覧'
+      to_book_detail: '本の詳細'
+      to_register_book: '新しい本を追加'
+    new:
+      title: '新規登録'
+      back_to_books: '本一覧へ戻る'
+    show:
+      to_edit_book: '本を編集'
+      back_to_books: '本一覧へ戻る'
+      delete_this_book: '本を削除'
+    edit:
+      title: '本を編集'
+      to_book_detail: '本の詳細'
+      back_to_books: '本一覧へ戻る'
