@@ -3,9 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
-  # before do
-  #   driven_by(:rack_test)
-  # end
   let(:user) { create(:user) }
 
   before { sign_in(user) }
@@ -14,13 +11,14 @@ RSpec.describe 'Users', type: :system do
     context '画像添付' do
       it 'アイコン画像を設定できる' do
         visit edit_user_registration_path
+        attach_file 'user[image]', "#{Rails.root}/spec/factories/user_image.png"
         fill_in 'user_current_password', with: user.password
-        attach_file 'user[image]', Rails.root.join('spec/factories/kitten.jpg').to_s
+        click_button '更新'
 
-        attached_user = User.first
-        expect(attached_user.image).to be_attached
+        expect(page).to have_content 'アカウント情報を変更しました。'
+        expect(current_path).to eq user_path(user)
+        expect(user.image).to be_attached
       end
-
     end
   end
 end
