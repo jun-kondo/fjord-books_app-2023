@@ -2,7 +2,9 @@
 
   <p>
     <strong><%= User.human_attribute_name(:image) %>:</strong>
-    <%= image_tag user.image if user.image.attached? %>
+    <% if user.image.attached? %>
+      <%= image_tag user.image.variant(:display) %>
+    <% end %>
   </p>
 
   <p>
