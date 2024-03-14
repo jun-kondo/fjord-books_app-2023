@@ -16,7 +16,7 @@ RSpec.describe 'Users', type: :system do
         fill_in 'user_postal_code', with: '1234567'
         fill_in 'user_address', with: '東京都千代田区1-1'
         fill_in 'user_self_introduction', with: 'よろしくお願いします。'
-        attach_file 'user[image]', "#{Rails.root}/spec/factories/sample.png"
+        attach_file 'user[image]', Rails.root.join('spec/factories/sample.png').to_s
         click_button 'アカウント登録'
         expect(page).to have_content 'アカウント登録が完了しました。'
         attached_new_user = User.first
@@ -51,7 +51,7 @@ RSpec.describe 'Users', type: :system do
         file_name = 'sample.png'
         visit edit_user_registration_path
         fill_in 'user_current_password', with: user.password
-        attach_file 'user[image]', "#{Rails.root}/spec/factories/#{file_name}"
+        attach_file 'user[image]', Rails.root.join("spec/factories/#{file_name}").to_s
         click_button '更新'
         expect(page).to have_content 'アカウント情報を変更しました。'
         expect(current_path).to eq user_path(user)
@@ -63,7 +63,7 @@ RSpec.describe 'Users', type: :system do
         file_name = 'sample.svg'
         visit edit_user_registration_path
         fill_in 'user_current_password', with: user.password
-        attach_file 'user[image]', "#{Rails.root}/spec/factories/#{file_name}"
+        attach_file 'user[image]', Rails.root.join("spec/factories/#{file_name}").to_s
         click_button '更新'
         expect(page).to have_content 'アイコンのContent Typeが不正です'
         expect(current_path).to eq edit_user_registration_path
