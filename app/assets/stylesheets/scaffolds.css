@@ -258,6 +258,7 @@ Show
   display: block;
   margin: 12px auto 0;
   object-fit: contain;
+  border-radius: 50%;
 }
 
 /****************
@@ -318,4 +319,11 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
   background-color: var(--global-primary-c-hover);
+}
+
+.image-resize {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
 }
