@@ -209,6 +209,7 @@ Index
   display: block;
   margin: 4px auto 0;
   object-fit: contain;
+  border-radius: 50%;
 }
 
 .index-item > p {
