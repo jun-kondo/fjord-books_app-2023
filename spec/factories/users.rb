@@ -14,10 +14,10 @@ FactoryBot.define do
       end
     end
 
-    trait :attached_jpeg do
+    trait :attached_jpg do
       image do
         Rack::Test::UploadedFile.new( \
-          Rails.root.join('spec/factories/sample.jpeg').to_s
+          Rails.root.join('spec/factories/sample.jpg').to_s
         )
       end
     end

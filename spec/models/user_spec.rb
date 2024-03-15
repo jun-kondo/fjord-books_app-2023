@@ -8,8 +8,8 @@ RSpec.describe User, type: :model do
     expect(user.image).to be_attached
   end
 
-  it 'jpegファイルを1件添付できる' do
-    user = create(:user, :attached_jpeg)
+  it 'jpgファイルを1件添付できる' do
+    user = create(:user, :attached_jpg)
     expect(user.image).to be_attached
   end
 
