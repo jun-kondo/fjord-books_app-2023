@@ -53,6 +53,13 @@ end
 User.destroy_all
 
 User.transaction do
+  User.create!(email: 'example@example.com',
+               password: 'foobar',
+               name: 'test-user',
+               postal_code: '100-0001',
+               address: '東京都千代田区千代田1-1',
+               self_introduction: 'Nice to meet you')
+
   50.times do |n|
     name = Faker::Name.name
     User.create!(
