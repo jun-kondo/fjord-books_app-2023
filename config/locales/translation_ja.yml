@@ -14,13 +14,6 @@ ja:
         zip_code: 郵便番号
         address: 住所
         self_introduction: 自己紹介
-
-  defaults:
-    login: ログイン
-    logout: ログアウト
-    my_page: マイページ
-    users: ユーザー一覧
-    books: 本の一覧
   users:
     show:
       profile: プロフィール

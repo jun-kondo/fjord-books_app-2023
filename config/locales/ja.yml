@@ -183,10 +183,12 @@ ja:
     pm: 午後
   views:
     common:
+      logout: ログアウト
       show: "この%{name}を表示"
       edit: "この%{name}を編集"
       destroy: "この%{name}を削除"
       new: "%{name}の新規作成"
+      index: "%{name}の一覧"
       back: "%{name}の一覧に戻る"
       delete_confirm: よろしいですか？
       title_index: "%{name}の一覧"
