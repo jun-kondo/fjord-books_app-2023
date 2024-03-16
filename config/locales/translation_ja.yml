@@ -11,13 +11,8 @@ ja:
         picture: 画像
         title: タイトル
       user:
+        profile: プロフィール
+        email: Eメール
         zip_code: 郵便番号
         address: 住所
         self_introduction: 自己紹介
-  users:
-    show:
-      profile: プロフィール
-      email: メールアドレス
-      zip_code: 郵便番号
-      address: 住所
-      self_introduction: 自己紹介

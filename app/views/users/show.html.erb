@@ -1,14 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1><%= t '.profile' %></h1>
+<h1><%= User.human_attribute_name(:profile) %></h1>
 
-<h3><%= t '.email' %></h3>
+<h3><%= User.human_attribute_name(:email) %></h3>
 <%= @user.email %>
-<h3><%= t '.zip_code' %></h3>
+<h3><%= User.human_attribute_name(:zip_code) %></h3>
 <%= @user.zip_code %>
-<h3><%= t '.address' %></h3>
+<h3><%= User.human_attribute_name(:address) %></h3>
 <%= @user.address %>
-<h3><%= t '.self_introduction' %></h3>
+<h3><%= User.human_attribute_name(:self_introduction) %></h3>
 <%= @user.self_introduction %>
 
 <% if @user == current_user %>
