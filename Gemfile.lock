@@ -344,6 +344,7 @@ DEPENDENCIES
   erb_lint
   factory_bot_rails
   faker
+  i18n
   i18n_generators
   image_processing (~> 1.2)
   importmap-rails

@@ -19,3 +19,4 @@ ja:
         avatar: ユーザ画像
       comment:
         body: コメント
+        created_at: 投稿日時
