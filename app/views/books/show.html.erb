@@ -3,8 +3,8 @@
 <div class="show-item">
   <%= render @book %>
 </div>
-<!--commentable: @book でもいいか-->
-<%= render 'comments/form', { commentable: @commentable, comment: @comment } %>
+
+<%= render 'comments/form', { commentable: @book, comment: @comment } %>
 <%= render 'comments/comments', { comments: @comments } %>
 
 <nav class="page-nav">

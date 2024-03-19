@@ -10,12 +10,8 @@ class BooksController < ApplicationController
 
   # GET /books/1 or /books/1.json
   def show
-    @commentable = set_book
-    # これでもいい
-    # @comment = Comments.new
-    @comment = @commentable.comments.build
-    @comments = @commentable.comments.includes(:user).order(created: :desc)
-    # @comments = @book.comments.includes(:user).order(created: :desc)
+    @comment = Comment.new
+    @comments = @book.comments.includes(:user).order(created: :desc)
   end
 
   # GET /books/new

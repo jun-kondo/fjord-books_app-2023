@@ -11,12 +11,9 @@
       </ul>
     </div>
   <% end %>
-<!--  これでも良さそう-->
-  <%#= hidden_field_tag :commentable_id, commentable.id %>
-  <%#= hidden_field_tag :commentable_type, commentable.class %>
 
-  <%= hidden_field_tag :commentable_id, comment.commentable_id %>
-  <%= hidden_field_tag :commentable_type, comment.commentable_type %>
+  <%= hidden_field_tag :commentable_id, commentable.id %>
+  <%= hidden_field_tag :commentable_type, commentable.class %>
 
   <div>
     <%= form.label :body, style: "display: block" %>
