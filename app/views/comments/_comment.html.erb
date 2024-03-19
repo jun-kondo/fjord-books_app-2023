@@ -1,0 +1,19 @@
+<div class="show-item">
+  <div id="<%= dom_id comment %>">
+    <p>
+      <strong><%= t('views.common.poster') %>:</strong>
+      <%= comment.user.name || comment.user.email %>
+      <br>
+      <%= comment.body %>
+      <br>
+      <strong><%= Comment.human_attribute_name(:created_at) %>:</strong>
+      <%= l comment.created_at, format: :short %>
+      <%# if current_user.id == comment.user_id %>
+      <% if current_user.own?(comment) %>
+        <!--    <%#= link_to t('views.common.edit', name: Comment.model_name.human.downcase), polymorphic_path([comment.commentable, comment]) %> |-->
+        <%= link_to t('views.common.destroy', name: Comment.model_name.human.downcase), [comment.commentable, comment], data: { 'turbo-method': :delete, turbo_confirm: t('views.common.delete_confirm') } %>
+      <% end %>
+      <%# end %>
+    </p>
+  </div>
+</div>
