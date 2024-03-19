@@ -178,6 +178,7 @@ ja:
     am: 午前
     formats:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      datetime: "%Y/%m/%d"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
@@ -197,6 +198,7 @@ ja:
       title_show: "%{name}の詳細"
       sign_out: ログアウト
       poster: 投稿者
+      no_content: "%{name}はありません"
     pagination:
       first: '« 最初'
       last: '最後 »'
