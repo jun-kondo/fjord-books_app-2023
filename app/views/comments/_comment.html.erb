@@ -2,7 +2,7 @@
   <div id="<%= dom_id comment %>">
     <p>
       <strong><%= t('views.common.poster') %>:</strong>
-      <%= comment.user.name || comment.user.email %>
+      <%= comment.user.name_or_email %>
       <br>
       <%= comment.body %>
       <br>

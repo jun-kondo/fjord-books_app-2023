@@ -1,7 +1,7 @@
 <div id="<%= dom_id report %>">
   <p>
     <strong><%= t('views.common.poster') %>:</strong>
-    <%= report.user.name || report.user.email %>
+    <%= report.user.name_or_email %>
   </p>
 
   <p>
