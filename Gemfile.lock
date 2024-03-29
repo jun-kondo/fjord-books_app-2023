@@ -328,6 +328,8 @@ DEPENDENCIES
   letter_opener_web
   puma
   rails (~> 7.0.6)
+  rinku
+  rspec-rails
   rubocop (~> 1.45.1)
   rubocop-fjord
   rubocop-rails

@@ -6,7 +6,7 @@
 
   <p>
     <strong><%= Report.human_attribute_name(:content) %>:</strong>
-    <%= format_content report.content %>
+    <%= raw Rinku.auto_link(format_content(report.content), nil, nil, nil, Rinku::AUTOLINK_SHORT_DOMAINS) %>
   </p>
 
   <p>
@@ -18,5 +18,4 @@
     <strong><%= Report.human_attribute_name(:created_on) %>:</strong>
     <%= l report.created_on %>
   </p>
-
 </div>
