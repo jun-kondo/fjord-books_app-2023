@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_02_082433) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_26_144056) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -57,6 +57,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_082433) do
     t.datetime "updated_at", null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "mentions", force: :cascade do |t|
+    t.integer "origin_id"
+    t.integer "destination_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["destination_id"], name: "index_mentions_on_destination_id"
+    t.index ["origin_id", "destination_id"], name: "index_mentions_on_origin_id_and_destination_id", unique: true
+    t.index ["origin_id"], name: "index_mentions_on_origin_id"
   end
 
   create_table "reports", force: :cascade do |t|
