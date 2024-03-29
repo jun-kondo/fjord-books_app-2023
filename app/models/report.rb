@@ -25,15 +25,6 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
-  # 新規作成時の日報の関連付け
-  # def save_mentioning_reports
-  #   other_reports = search_mentioned_reports_from_content
-  #   other_reports.each do |other_report|
-  #     mention(other_report)
-  #   end
-  # end
-
-  # 更新時の日報の関連付け
   def save_mentioning_reports
     old_other_reports = mentioning_reports - search_mentioned_reports_from_content
     old_other_reports.each do |old_other_report|
