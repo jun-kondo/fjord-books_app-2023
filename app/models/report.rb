@@ -3,6 +3,16 @@
 class Report < ApplicationRecord
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :active_mentions, class_name: 'Mention',
+                             foreign_key: 'origin_id',
+                             inverse_of: 'origin',
+                             dependent: :destroy
+  has_many :passive_mentions, class_name: 'Mention',
+                              foreign_key: 'destination_id',
+                              inverse_of: 'destination',
+                              dependent: :destroy
+  has_many :mentioning_reports, through: :active_mentions, source: :destination
+  has_many :mentioned_reports, through: :passive_mentions, source: :origin
 
   validates :title, presence: true
   validates :content, presence: true
@@ -13,5 +23,42 @@ class Report < ApplicationRecord
 
   def created_on
     created_at.to_date
+  end
+
+  # 新規作成時の日報の関連付け
+  # def save_mentioning_reports
+  #   other_reports = search_mentioned_reports_from_content
+  #   other_reports.each do |other_report|
+  #     mention(other_report)
+  #   end
+  # end
+
+  # 更新時の日報の関連付け
+  def save_mentioning_reports
+    old_other_reports = mentioning_reports - search_mentioned_reports_from_content
+    old_other_reports.each do |old_other_report|
+      mentioning_reports.delete(old_other_report)
+    end
+    new_other_reports = search_mentioned_reports_from_content - mentioning_reports
+    new_other_reports.each do |new_other_report|
+      mention(new_other_report)
+    end
+  end
+
+  private
+
+  def search_mentioned_reports_from_content
+    permitted_url = %r{http://localhost:3000/reports/\d+}
+    other_report_urls = content.scan(permitted_url)
+    other_report_urls.map do |other_report_url|
+      other_report_id = URI.parse(other_report_url).path.scan(/\d+/)
+      Report.find_by(id: other_report_id)
+    end
+  end
+
+  def mention(other_report)
+    return if other_report.blank?
+
+    mentioning_reports << other_report unless self == other_report
   end
 end
