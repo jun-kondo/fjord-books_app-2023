@@ -336,7 +336,6 @@ DEPENDENCIES
   jbuilder
   kaminari
   letter_opener_web
-  minitest
   puma
   rails (~> 7.0.6)
   rails_autolink
