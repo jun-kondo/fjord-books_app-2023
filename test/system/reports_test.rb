@@ -4,44 +4,40 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    @report = reports(:one)
+    @user = create(:user)
+    @report = create(:report, user: @user)
   end
 
-  test 'visiting the index' do
-    visit reports_url
-    assert_selector 'h1', text: 'Reports'
+  test '日報作成' do
+    sign_in(@user)
+    visit new_report_path
+    assert_text '日報の新規作成'
+    title = '今日の日報'
+    content = 'Railsのアプリを作成した。'
+    fill_in 'タイトル', with: title
+    fill_in '内容', with: content
+    click_button '登録する'
+    assert_text '日報が作成されました。'
+    assert_text title
+    assert_text content
   end
-
-  test 'should create report' do
-    visit reports_url
-    click_on 'New report'
-
-    fill_in 'Content', with: @report.content
-    fill_in 'Title', with: @report.title
-    fill_in 'User', with: @report.user_id
-    click_on 'Create Report'
-
-    assert_text 'Report was successfully created'
-    click_on 'Back'
+  test '日報更新' do
+    sign_in(@user)
+    visit report_path(@report)
+    click_on 'この日報を編集'
+    updated_title = '日報のタイトルを更新'
+    updated_content = '日報の本文を更新'
+    fill_in 'タイトル', with: updated_title
+    fill_in '内容', with: updated_content
+    click_button '更新する'
+    assert_text '日報が更新されました'
+    assert_text updated_title
+    assert_text updated_content
   end
-
-  test 'should update Report' do
-    visit report_url(@report)
-    click_on 'Edit this report', match: :first
-
-    fill_in 'Content', with: @report.content
-    fill_in 'Title', with: @report.title
-    fill_in 'User', with: @report.user_id
-    click_on 'Update Report'
-
-    assert_text 'Report was successfully updated'
-    click_on 'Back'
-  end
-
-  test 'should destroy Report' do
-    visit report_url(@report)
-    click_on 'Destroy this report', match: :first
-
-    assert_text 'Report was successfully destroyed'
+  test '日報削除' do
+    sign_in(@user)
+    visit report_path(@report)
+    click_on 'この日報を削除'
+    assert_text '日報が削除されました。'
   end
 end
