@@ -46,6 +46,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_storage_validations (0.9.8)
+      activejob (>= 5.2.0)
+      activemodel (>= 5.2.0)
+      activestorage (>= 5.2.0)
+      activesupport (>= 5.2.0)
     activejob (7.0.6)
       activesupport (= 7.0.6)
       globalid (>= 0.3.6)
@@ -111,6 +116,7 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (1.11.0)
       devise (>= 4.9.0)
+    diff-lcs (1.5.1)
     erb_lint (0.4.0)
       activesupport
       better_html (>= 2.0.1)
@@ -119,6 +125,11 @@ GEM
       rubocop
       smart_properties
     erubi (1.12.0)
+    factory_bot (6.4.6)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.4.3)
+      factory_bot (~> 6.4)
+      railties (>= 5.0.0)
     faker (3.2.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
@@ -241,6 +252,23 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
     rexml (3.2.6)
+    rspec-core (3.13.0)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-rails (6.1.1)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.13.1)
     rubocop (1.45.1)
       json (~> 2.3)
       parallel (~> 1.10)
@@ -312,6 +340,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_storage_validations
   bootsnap
   capybara
   carrierwave
@@ -319,14 +348,17 @@ DEPENDENCIES
   devise
   devise-i18n
   erb_lint
+  factory_bot_rails
   faker
   i18n_generators
+  image_processing (~> 1.2)
   importmap-rails
   jbuilder
   kaminari
   letter_opener_web
   puma
   rails (~> 7.0.6)
+  rspec-rails
   rubocop (~> 1.45.1)
   rubocop-fjord
   rubocop-rails

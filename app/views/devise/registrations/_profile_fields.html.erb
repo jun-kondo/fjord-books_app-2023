@@ -17,3 +17,34 @@
   <%= f.label :self_introduction %><br />
   <%= f.text_area :self_introduction %>
 </div>
+
+<div class="field">
+  <%= f.file_field :image, accept: 'image/jpg, image/png, image/gif', id: 'image' %>
+  <% if current_user.present? && current_user.image.attached? %>
+    <%= image_tag current_user.image.variant(:display), id: 'image-preview', class: 'image-resize' %>
+  <% else %>
+    <%= image_tag '', id: 'image-preview', class: 'image-resize' %>
+  <% end %>
+
+  <script>
+      document.addEventListener('turbo:load', () => {
+          const imageInput = document.querySelector('#image');
+          const imagePreview = document.querySelector('#image-preview');
+
+          imageInput.addEventListener('change', (e) => {
+              const file = e.target.files[0];
+              const reader = new FileReader();
+
+              reader.onloadend = () => {
+                  imagePreview.src = reader.result;
+              };
+
+              if (file) {
+                  reader.readAsDataURL(file);
+              } else {
+                  imagePreview.src = "";
+              }
+          });
+      });
+  </script>
+</div>
