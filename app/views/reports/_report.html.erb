@@ -1,0 +1,24 @@
+<div id="<%= dom_id report %>">
+  <p>
+    <strong><%= t('views.common.poster') %>:</strong>
+    <%= report.user.name_or_email %>
+  </p>
+
+  <p>
+    <strong><%= Report.human_attribute_name(:created_at) %>:</strong>
+    <%= l report.created_at, format: :datetime %>
+  </p>
+
+  <p>
+    <strong><%= Report.human_attribute_name(:title) %>:</strong>
+    <%= report.title %>
+  </p>
+
+  <p>
+    <strong><%= Report.human_attribute_name(:body) %>:</strong>
+    <br>
+  </p>
+  <div class="comment-body">
+    <%= simple_format( report.body ) %>
+  </div>
+</div>

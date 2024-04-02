@@ -9,7 +9,10 @@ class BooksController < ApplicationController
   end
 
   # GET /books/1 or /books/1.json
-  def show; end
+  def show
+    @comment = Comment.new
+    @comments = @book.comments.includes(:user).order(created: :desc)
+  end
 
   # GET /books/new
   def new

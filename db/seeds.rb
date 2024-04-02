@@ -53,6 +53,13 @@ end
 User.destroy_all
 
 User.transaction do
+  User.create!(email: 'example@example.com',
+               password: 'foobar',
+               name: 'test-user',
+               postal_code: '100-0001',
+               address: '東京都千代田区千代田1-1',
+               self_introduction: 'Nice to meet you')
+
   50.times do |n|
     name = Faker::Name.name
     User.create!(
@@ -73,6 +80,16 @@ User.order(:id).each.with_index(1) do |user, n|
   number = rand(1..6)
   image_path = Rails.root.join("db/seeds/avatar-#{number}.png")
   user.avatar.attach(io: File.open(image_path), filename: 'avatar.png')
+end
+
+Report.destroy_all
+
+user = User.first
+50.times do
+  user.reports.create!(
+    title: Faker::Lorem.word,
+    body: Faker::Lorem.paragraph
+  )
 end
 
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output
