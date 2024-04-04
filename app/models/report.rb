@@ -32,7 +32,7 @@ class Report < ApplicationRecord
     end
     new_other_reports = search_mentioned_reports_from_content - mentioning_reports
     new_other_reports.each do |new_other_report|
-      mention(new_other_report)
+      mentioning_reports << new_other_report if new_other_report.present? && self != new_other_report
     end
   end
 
@@ -45,11 +45,5 @@ class Report < ApplicationRecord
       other_report_id = URI.parse(other_report_url).path.scan(/\d+/)
       Report.find_by(id: other_report_id)
     end
-  end
-
-  def mention(other_report)
-    return if other_report.blank?
-
-    mentioning_reports << other_report unless self == other_report
   end
 end
