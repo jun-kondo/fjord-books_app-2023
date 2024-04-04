@@ -25,7 +25,7 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
-  def save_mentioning_reports
+  def save_mentions
     old_other_reports = mentioning_reports - search_mentioned_reports_from_content
     old_other_reports.each do |old_other_report|
       mentioning_reports.delete(old_other_report)
