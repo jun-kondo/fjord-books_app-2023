@@ -16,7 +16,7 @@ class Report < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
-  after_save :save_mentions
+  after_save :save_included_mentions
 
   def editable?(target_user)
     user == target_user
@@ -26,7 +26,7 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
-  def save_mentions
+  def save_included_mentions
     old_other_reports = mentioning_reports - search_mentioned_reports_from_content
     old_other_reports.each do |old_other_report|
       mentioning_reports.delete(old_other_report)
