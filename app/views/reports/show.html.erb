@@ -4,6 +4,19 @@
   <%= render @report %>
 </div>
 
+<div class="mentioned_reports-container">
+  <% if @report.mentioned_reports.exists? %>
+    <h3><%= t('views.common.mention', name: Report.model_name.human.downcase) %></h3>
+    <ul>
+      <% @report.mentioned_reports.each do |mentioned_report| %>
+        <li>
+          <%= link_to(mentioned_report.title, report_path(mentioned_report)) %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
 <%= render 'shared/comments', commentable: @report %>
 
 <nav class="page-nav">
